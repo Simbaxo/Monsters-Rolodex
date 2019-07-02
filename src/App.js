@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg';
 import './App.css';
 
 // Class Component gives access to state
@@ -8,18 +7,30 @@ class App extends Component {
     super() // calls the constructor method on component class to give access to this.state
 
     this.state = {
-      string: 'Hello Andres'
+      monsters: [
+        {
+          name: 'Frankenstein',
+          id: 'asc1'
+        },
+        {
+          name: 'Dracula',
+          id: 'asr2'
+        },
+        {
+          name: 'Zombie',
+          id: 'as1w'
+        },
+      ]
     }
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>{this.state.string}</p>
-          <button onClick={() => this.setState({ string: 'Hello Jalessa' })}>Change Text</button>
-        </header>
+        {
+          this.state.monsters.map(monster =>
+            <h1 key={monster.id}> {monster.name} </h1>)
+        }
       </div>
     )
   }
