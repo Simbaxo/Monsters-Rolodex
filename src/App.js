@@ -4,8 +4,8 @@ import './App.css';
 
 // Class Component gives access to state
 class App extends Component {
-  constructor() {
-    super() // calls the constructor method on component class to give access to this.state
+  constructor(props) {
+    super(props) // calls the constructor method on component class to give access to this.state
 
     this.state = {
       monsters: []
@@ -24,12 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CardList name="Andres">
-          {
-            this.state.monsters.map(monster =>
-              <h1 key={monster.id}> {monster.name} </h1>)
-          }
-        </CardList>
+        <CardList monsters={this.state.monsters} />
       </div>
     )
   }
