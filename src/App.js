@@ -12,8 +12,6 @@ class App extends Component {
       monsters: [],
       searchField: ''
     }
-
-    this.handleChange = this.handleChange.bind(this)
   }
 
   // runs after output has been rendered to the dom
@@ -25,7 +23,7 @@ class App extends Component {
       }))
   }
 
-  handleChange(e) {
+  handleChange = (e) => { // arrow functions bind this with lexical scoping
     this.setState({ searchField: e.target.value })
   }
 
